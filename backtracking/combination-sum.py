@@ -6,7 +6,7 @@ def combinationSum(candidates: List[int], target: int) -> List[List[int]]:
     
 def bt(candidates, target, index, path, results):
     if target == 0:
-        results.append(list(path))
+        results.append(path)
         return
     if target < 0:
         return
