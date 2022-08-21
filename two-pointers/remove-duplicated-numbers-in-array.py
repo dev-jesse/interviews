@@ -1,13 +1,12 @@
-def deduplication(self, nums: List[int]) -> int:
-    if not nums:
-        return 0 
+def removeDuplicates(nums: List[int]) -> int:
+    # Keep track of where you want to place next number with left pointer
+    n = len(nums)
+    i = 0
 
-    nums.sort()
-    j = 0
-    for i in range(len(nums) - 1):
-        if nums[i] != nums[i + 1]:
-            nums[j] = nums[i]
-            j += 1
+    # Iterate the right pointer and ignore the dupes
+    for j in range(1, n):
+        if nums[j] != nums[i]:
+            i += 1
+            nums[i] = nums[j]
 
-    nums[j] = nums[-1]
-    return (j + 1)
+    return i + 1
